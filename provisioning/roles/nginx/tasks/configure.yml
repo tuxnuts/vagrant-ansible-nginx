@@ -1,0 +1,31 @@
+- name: Replace listener tcp port 80 with 8000 in nginx default config file
+  lineinfile:
+      dest: "{{ nginx_default_config }}"
+      regexp: '^\s*listen 80 default_server;$'
+      line: '	listen 8000 default_server;'
+      backrefs: yes
+  notify: restart nginx service
+
+- name: Replace listener tcp6 port [::]:80 with [::]:8000 in nginx default config file
+  lineinfile:
+      dest: "{{ nginx_default_config }}"
+      regexp: '^\s*listen \[::\]:80 default_server;$'
+      line: '	listen [::]:8000 default_server;'
+      backrefs: yes
+  notify: restart nginx service
+
+- name: Checkout index.html from github
+  git: 
+      repo: "{{ master_git_repo }}"
+      dest: "{{ local_git_repo }}"
+      version: master
+      force: yes
+
+- name: Copy index.html to web server root dir
+  copy: 
+      src: "{{ local_git_repo }}/index.html"
+      dest: "{{ webserver_root }}/index.html" 
+      mode: 0644
+      remote_src: yes
+  notify: restart nginx service
+

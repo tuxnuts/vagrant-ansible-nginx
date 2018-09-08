@@ -1,0 +1,5 @@
+- name: install nginx server
+  include: install.yml
+
+- name: configure nginx server
+  include: configure.yml

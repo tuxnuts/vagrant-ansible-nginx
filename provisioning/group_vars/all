@@ -1,0 +1,5 @@
+nginx_default_config: /etc/nginx/sites-available/default
+master_git_repo: git://github.com/puppetlabs/exercise-webpage
+local_git_repo: /srv/exercise-webpage
+webserver_root: /var/www/html
+
