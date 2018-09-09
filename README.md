@@ -4,7 +4,7 @@ nginix web server – auto provisioned with Ansible &amp; Vagrant
 
 This automation solution for provisioning and configuring an ngnix web server relies on Vagrant for virtual machine management, Virtualbox hypervisor and Ansible for provisioning. Install the following software on your provisioning host...
 
-  Virtualbox (v5.2 recommended) https://ww.virtualbox.org/wiki/Downloads
+  Virtualbox (v5.2 recommended) https://www.virtualbox.org/wiki/Downloads
   
   Vagrant v2.1.4 (recommended)  https://www.vagrantup.com/downloads.html
   
